@@ -30,6 +30,8 @@ pub struct PerfEventAttr {
     /// The type of the perf event.
     pub type_: PerfEventType,
 
+    pub self_described_size: u32,
+
     /// The sampling policy.
     pub sampling_policy: SamplingPolicy,
 
@@ -207,6 +209,7 @@ impl PerfEventAttr {
 
         Ok(Self {
             type_,
+            self_described_size,
             sampling_policy,
             sample_format: SampleFormat::from_bits_truncate(sample_type),
             read_format: ReadFormat::from_bits_truncate(read_format),
